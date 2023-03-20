@@ -17,6 +17,8 @@ public class Student implements Comparable<Student> {
     }
 
     public Student() {
+        testScores = new ArrayList<>(Arrays.asList(new Double[0]));
+
 
     }
 
@@ -29,10 +31,11 @@ public class Student implements Comparable<Student> {
     }
 
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Double[] getExamScores() {
@@ -51,10 +54,13 @@ public class Student implements Comparable<Student> {
 
     public Double getAverageExamScore() {
         Double total = 0.0;
-        for (Double testsocre:testScores) {
+        for (Double testScore:testScores) {
+            total+=testScore;
 
         }
-        return null;
+        Integer totalAmountOfScores = testScores.size();
+        Double average = total/totalAmountOfScores;
+        return average;
     }
 
     @Override
