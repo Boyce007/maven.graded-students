@@ -1,9 +1,19 @@
 package com.github.curriculeon;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Student implements Comparable<Student> {
+    private String firstName;
+    private String lastName;
+    private List<Double> testScores;
 
     public Student(String firstName, String lastName, Double[] testScores) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.testScores = new ArrayList<>(Arrays.asList(testScores));
     }
 
     public Student() {
@@ -11,10 +21,11 @@ public class Student implements Comparable<Student> {
     }
 
     public String getFirstName() {
-        return null;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -25,14 +36,16 @@ public class Student implements Comparable<Student> {
     }
 
     public Double[] getExamScores() {
-        return null;
+        return this.testScores.toArray(new Double[0]);
     }
 
     public void addExamScore(double examScore) {
+        testScores.add(examScore);
     }
 
 
     public void setExamScore(int examNum, double updateScore) {
+        testScores.set(examNum,updateScore);
     }
 
 
