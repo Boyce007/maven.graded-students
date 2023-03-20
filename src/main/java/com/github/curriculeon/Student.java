@@ -50,6 +50,10 @@ public class Student implements Comparable<Student> {
 
 
     public Double getAverageExamScore() {
+        Double total = 0.0;
+        for (Double testsocre:testScores) {
+
+        }
         return null;
     }
 
