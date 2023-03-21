@@ -39,13 +39,17 @@ public class Classroom {
     }
 
     public Student[] getStudentsByScore() {
-
-        for (int i = 0; i < students.size(); i++) {
-
+        for (int i = 0; i < students.size() - 1; i++) {
+            for (int j = i + 1; j < students.size(); j++) {
+                if (students.get(j).getAverageExamScore() > students.get(i).getAverageExamScore()) {
+                    // swap the two elements
+                    Student temp = students.get(i);
+                    students.set(i,students.get(j));
+                    students.set(j,temp);
+                }
+            }
         }
-
-
-       return null;
+        return students.toArray(new Student[0]);
     }
 
     public Map<Student, Character> getGradeBook() {
