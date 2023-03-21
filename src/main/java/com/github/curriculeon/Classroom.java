@@ -1,10 +1,7 @@
 package com.github.curriculeon;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Classroom {
     private List<Student> students;
@@ -33,20 +30,41 @@ public class Classroom {
         return classAverage;
     }
 
-    public Boolean addStudent(Student students) {
-        return null;
+    public Boolean addStudent(Student student) {
+        return students.add(student);
     }
 
     public Boolean removeStudent(Student student) {
-        return null;
+        return students.remove(student);
     }
 
     public Student[] getStudentsByScore() {
-        return null;
+
+        for (int i = 0; i < students.size(); i++) {
+
+        }
+
+
+       return null;
     }
 
     public Map<Student, Character> getGradeBook() {
-        return null;
+        Map<Student, Character> gradeBook = new HashMap<>();
+        for (Student student:students) {
+            Double averageGrade = student.getAverageExamScore();
+            if (averageGrade>=84) {
+                gradeBook.put(student,'A');
+            } else if (averageGrade < 84 && averageGrade > 71) {
+                gradeBook.put(student,'B');
+            } else if (averageGrade < 70 && averageGrade > 56) {
+                gradeBook.put(student, 'C');
+            } else if (averageGrade <= 55 && averageGrade > 46) {
+                gradeBook.put(student, 'D');
+            } else {
+                gradeBook.put(student, 'F');
+            }
+        }
+        return gradeBook;
     }
 
 }
